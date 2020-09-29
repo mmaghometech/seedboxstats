@@ -6,16 +6,16 @@ const request = require('request-promise');
 const checkInterval = process.env.UPDATE_INTERVAL_MS || 1000 * 30;
 
 const influxClient = new Influx.InfluxDB({
-    host: process.env.INFLUX_HOST || 'localhost',
+    host: process.env.INFLUX_HOST || '192.168.1.10',
     port: process.env.INFLUX_PORT || 8086,
     protocol: process.env.INFLUX_PROTOCOL || 'http',
-    database: process.env.INFLUX_DB || 'deluge',
+    database: process.env.INFLUX_DB || 'telegraf',
     username: process.env.INFLUX_USER || '',
     password: process.env.INFLUX_PASS || ''
 });
 
 const delugeConfig = {
-    host: process.env.DELUGE_HOST || 'localhost',
+    host: process.env.DELUGE_HOST || '192.168.1.10',
     protocol: process.env.DELUGE_PROTOCOL ||'http',
     port: process.env.DELUGE_PORT || 8112,
     password: process.env.DELUGE_PASSWORD || 'deluge'
